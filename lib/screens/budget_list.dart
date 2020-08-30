@@ -1,6 +1,5 @@
 import 'package:devprecos/models/budget_item.dart';
 import 'package:devprecos/screens/budget_drawer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BudgetList extends StatelessWidget {
@@ -20,12 +19,16 @@ class BudgetList extends StatelessWidget {
           BudgetItem('Relatorios Nutra', '1000'),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          debugPrint("mano");
-        },
-      ),
+
+      floatingActionButton: Container(
+        margin: const EdgeInsets.fromLTRB(0, 0, 10, 10),
+        child: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              debugPrint("mano");
+            },
+          )
+      )
     );
   }
 }

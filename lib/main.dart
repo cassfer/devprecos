@@ -1,6 +1,7 @@
 import 'package:devprecos/screens/budget_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:devprecos/screens/settings.dart';
 
 void main() {
   runApp(Devprecos());
@@ -12,7 +13,7 @@ class Devprecos extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       title: "Dev preços",
-      home: BudgetList(),
+      home: Settings(),
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.lightBlue[800],
