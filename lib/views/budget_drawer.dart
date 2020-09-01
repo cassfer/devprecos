@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,8 +19,8 @@ class BudgetDrawer extends StatelessWidget {
               color: Theme.of(context).primaryColor,
             ),
           ),
-          ItemDrawer('Configurações'),
-          ItemDrawer('Sobre')
+          ItemDrawer('Configurações', '/settings'),
+          ItemDrawer('Sobre', '/')
         ],
       ),
     );
@@ -31,8 +29,9 @@ class BudgetDrawer extends StatelessWidget {
 
 class ItemDrawer extends StatelessWidget {
   final String _name;
+  final String _route;
 
-  ItemDrawer(this._name);
+  ItemDrawer(this._name, this._route);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +40,7 @@ class ItemDrawer extends StatelessWidget {
       title: Text(this._name),
       onTap: () => {
         debugPrint('esse eh o item: ' + _name),
-        Navigator.pop(context),
+        Navigator.pushNamed(context, this._route),
       },
     );
   }

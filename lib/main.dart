@@ -1,7 +1,8 @@
 import 'package:devprecos/views/budget_list.dart';
+import 'package:devprecos/views/form_new_budget.dart';
+import 'package:devprecos/views/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:devprecos/views/settings.dart';
 
 void main() {
   runApp(Devprecos());
@@ -12,8 +13,12 @@ class Devprecos extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      title: "Dev preços",
-      home: Settings(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => BudgetList(),
+        '/settings': (context) => Settings(),
+        '/new_budget': (context) => FormNewBudget(),
+      },
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.lightBlue[800],

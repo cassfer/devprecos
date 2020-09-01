@@ -1,16 +1,24 @@
+import 'package:devprecos/models/budget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class BudgetItem extends StatelessWidget {
-  final String _budgetName;
-  final String _price;
+  String _budgetName;
+  String _price;
+  Budget budget;
 
-  BudgetItem(this._budgetName, this._price);
+  BudgetItem(Budget budget) {
+    this.budget = budget;
+    this._budgetName = budget.title;
+    this._price = budget.price.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onLongPress: () {
-        debugPrint('nome: ' + _budgetName + ' foi cliado');
+        debugPrint('nome: ' + this.budget.title + ' foi cliado');
       },
       child: Card(
         child: Container(
@@ -23,7 +31,7 @@ class BudgetItem extends StatelessWidget {
             trailing: IconButton(
                 icon: Icon(Icons.menu),
                 onPressed: () {
-                  debugPrint('nome: ' + _budgetName + ' foi cliado');
+                  _edit(context, this.budget);
                 }),
             title: Text(
               this._budgetName,
@@ -37,5 +45,11 @@ class BudgetItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _edit(context, Budget sendBudget) {
+    if (sendBudget != null) {
+      Navigator.pushNamed(context, '/new_budget', arguments: sendBudget);
+    }
   }
 }
