@@ -1,5 +1,5 @@
 import 'package:devprecos/models/budget_item.dart';
-import 'package:devprecos/screens/budget_drawer.dart';
+import 'package:devprecos/views/budget_drawer.dart';
 import 'package:flutter/material.dart';
 
 class BudgetList extends StatelessWidget {

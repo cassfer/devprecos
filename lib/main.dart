@@ -1,7 +1,7 @@
-import 'package:devprecos/screens/budget_list.dart';
+import 'package:devprecos/views/budget_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:devprecos/screens/settings.dart';
+import 'package:devprecos/views/settings.dart';
 
 void main() {
   runApp(Devprecos());
