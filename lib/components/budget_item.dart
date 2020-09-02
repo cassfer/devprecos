@@ -18,7 +18,7 @@ class BudgetItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onLongPress: () {
-        debugPrint('nome: ' + this.budget.title + ' foi cliado');
+        _edit(context, this.budget);
       },
       child: Card(
         child: Container(
@@ -47,9 +47,9 @@ class BudgetItem extends StatelessWidget {
     );
   }
 
-  _edit(context, Budget sendBudget) {
-    if (sendBudget != null) {
-      Navigator.pushNamed(context, '/new_budget', arguments: sendBudget);
-    }
+  _edit(context, sendBudget) {
+      Navigator.pushNamed(context, '/new_budget', arguments: sendBudget).then((budgetEdited)=>{
+        BudgetItem(budgetEdited),
+      });
   }
 }

@@ -15,6 +15,7 @@ class TextArea extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return TextField(
+      controller: this.controller,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         labelText: this.title,

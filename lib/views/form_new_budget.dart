@@ -8,26 +8,21 @@ class FormNewBudget extends StatelessWidget {
   final TextEditingController _controllerTimeField = TextEditingController();
   final TextEditingController _controllerNoteField = TextEditingController();
 
-  Budget oldBudget;
-  String name;
-  int time;
-  String note;
 
-  FormNewBudget({Key key, this.oldBudget}) : super(key: key) {
-    if (this.oldBudget != null) {
-      print(this.oldBudget);
+  @override
+  Widget build(BuildContext context) {
+    final Budget oldBudget = ModalRoute.of(context).settings.arguments;
+
+    if (oldBudget != null) {
       this._controllerNameField.text = oldBudget.title;
       this._controllerTimeField.text = oldBudget.time.toString();
       this._controllerNoteField.text = oldBudget.note;
     }
-  }
 
-  @override
-  Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: this.oldBudget == null
+        title: oldBudget == null
             ? Text('Novo Orçamento')
             : Text('Editar Orçamento'),
       ),
@@ -79,9 +74,9 @@ class FormNewBudget extends StatelessWidget {
   }
 
   void _createBudget(BuildContext context) {
-    final String title = _controllerNameField.text;
-    final int time = int.tryParse(_controllerTimeField.text);
-    final String note = _controllerNoteField.text;
+    String title = _controllerNameField.text;
+    int time = int.tryParse(_controllerTimeField.text);
+    String note = _controllerNoteField.text;
 
     if (title != null && time != null) {
       final createdBudget = Budget(title, time, note);

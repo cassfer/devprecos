@@ -4,7 +4,7 @@ import 'package:devprecos/views/budget_drawer.dart';
 import 'package:flutter/material.dart';
 
 class BudgetList extends StatefulWidget {
-  final List<Budget> _budgets = List();
+  List<Budget> _budgets = List();
 
   @override
   State<StatefulWidget> createState() {
@@ -14,9 +14,10 @@ class BudgetList extends StatefulWidget {
 }
 
 class BudgetListState extends State<BudgetList> {
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Dev Preços'),
